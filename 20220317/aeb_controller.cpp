@@ -8,17 +8,15 @@
  std_msgs::Bool flag_AEB;
  
  void UltraSonarCallback(const sensor_msgs::Range::ConstPtr& msg)
- {
-	 ROS_INFO("Sonar Seq: [%d]", msg->header.seq);
-	 ROS_INFO("Sonar Range: [%f]", msg->range);
-	 
+ {	 
 	 if(msg->range <=1.0)
 	 {
-		 ROS_INFO("AEB_Activation!!");
+		 ROS_INFO("Activation!!");
 		 flag_AEB.data = true;
 	 }
 	 else
 	 {
+		 ROS_INFO("Activatio_Off");
 		 flag_AEB.data = false;
 	 }
  }
